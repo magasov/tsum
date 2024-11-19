@@ -9,6 +9,11 @@
     img {
         width: 270px;
         height: 390px;
+        -webkit-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none; 
+        pointer-events: none; 
     }
 
     h3 {
