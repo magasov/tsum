@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./product.scss";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 const Product = () => {
   const [data, setData] = React.useState([]);
@@ -18,6 +19,7 @@ const Product = () => {
           <h3>{items.title}</h3>
           <p>{items.desc}</p>
           <h4>{items.price} ₽</h4>
+          <StarBorderIcon />
         </div>
       ))}
     </>
