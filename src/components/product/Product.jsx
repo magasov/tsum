@@ -2,8 +2,8 @@ import "./product.scss";
 
 const Product = () => {
   return (
-    <div className="product">
-      <div className="content"></div>
+    <div className="content">
+      <div className="product"></div>
     </div>
   );
 };

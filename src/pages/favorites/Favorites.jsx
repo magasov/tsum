@@ -2,8 +2,8 @@ import "./favorites.scss";
 
 const Favorites = () => {
   return (
-    <div className="favorites">
-      <div className="content">Избранное</div>
+    <div className="content">
+      <div className="favorites"></div>
     </div>
   );
 };

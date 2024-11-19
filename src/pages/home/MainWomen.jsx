@@ -2,8 +2,8 @@ import "./home.scss";
 
 const MainWomen = () => {
   return (
-    <div className="mainWomen">
-      <div className="content"></div>
+    <div className="content">
+      <div className="mainWomen"></div>
     </div>
   );
 };
