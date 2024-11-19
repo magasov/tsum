@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Baltica";
+}
+
+@font-face {
+    font-family: 'Baltica';
+    src: url('../../public/assets/fonts/Baltica.woff2') format('woff2'),
+         url('../../public/assets/fonts/Baltica.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
