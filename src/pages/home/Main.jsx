@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "./home.scss";
+import Product from "../../components/product/Product";
 
 const Main = () => {
   return (
@@ -28,7 +29,22 @@ const Main = () => {
               <li>Интерьер</li>
             </ul>
           </aside>
-          <div className="main__product">s</div>
+          <div className="main__product">
+            <nav className="main__nav">
+              <Link>Выбор ЦУМА</Link>
+              <Link>Бренды</Link>
+              <Link>Материал корпуса</Link>
+              <Link>Механизм</Link>
+              <Link>Цвет циферблата</Link>
+              <Link>Цена</Link>
+              <Link>Другие</Link>
+            </nav>
+            <div className="main__count">370 товаров</div>
+            <div className="main__pages">
+              {/* product */}
+              <Product />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,9 +2,15 @@ import "./product.scss";
 
 const Product = () => {
   return (
-    <div className="content">
+    <>
       <div className="product"></div>
-    </div>
+      <div className="product"></div>
+      <div className="product"></div>
+      <div className="product"></div>
+      <div className="product"></div>
+      <div className="product"></div>
+      <div className="product"></div>
+    </>
   );
 };
 

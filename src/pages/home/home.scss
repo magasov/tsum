@@ -40,13 +40,51 @@
                     font-weight: 400;
                     text-transform: uppercase;
                     font-size: 13px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #FB8F65;
+                    }
                 }
             }
         }
 
         .main__product {
             flex: 1;
-            background: blue;
+            
+            .main__nav {
+                height: 56px;
+                display: flex;
+                gap: 6px;
+                padding: 0 16px;
+
+                a {
+                    font-size: 13px;
+                    line-height: 1;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                    padding: 7px 10px;
+                    border: 1px solid #333;
+                    color: #111;
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
         }
+    }
+
+    &__count {
+        padding: 18px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: #99a0ad;
+    }
+
+    &__pages {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 16px 0;
     }
 }
