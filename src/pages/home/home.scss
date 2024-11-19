@@ -1,0 +1,52 @@
+.main {
+    .main__nav {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        height: 50.39px;
+        align-items: center;
+        color: #99a0ad;
+        font-size: 12px;
+
+        a {
+            color: #99a0ad;
+            letter-spacing: .04em;
+        }
+    }
+
+    &__h1 {
+        display: flex; 
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        
+    }
+
+    &__main {
+        width: 100%;
+        display: flex;
+
+        aside {
+            width: 300px;
+            padding: 0 14px;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    padding: 9.5px 0;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .main__product {
+            flex: 1;
+            background: blue;
+        }
+    }
+}
