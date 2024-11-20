@@ -36,8 +36,8 @@ const Product = () => {
         ))
       ) : (
         data.map((items) => (
-          <Link to={`/products/${items.id}`} className="product" key={items.id}>
-            <img src={items.image} alt="images" />
+          <div className="product" key={items.id}>
+            <Link to={`/products/${items.id}`}></Link><img src={items.image} alt="images" /></Link>
             <h3>{items.title}</h3>
             <p>{items.desc}</p>
             <h4>{items.price} ₽</h4>
@@ -52,7 +52,7 @@ const Product = () => {
                 className="product__icon"
               />
             )}
-          </Link>
+          </div>
         ))
       )}
     </>
