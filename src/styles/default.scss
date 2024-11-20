@@ -3,11 +3,14 @@
     margin: 0;
     list-style: none;
     text-decoration: none;
-    font-family: "Baltica";
+    color: inherit;
+    // font-family: "Baltica";
+    font-family: 'Nunito', sans-serif;
 }
 
 @font-face {
-    font-family: 'Baltica';
+    // font-family: 'Baltica';
+    font-family: 'Nunito', sans-serif;
     src: url('../../public/assets/fonts/Baltica.woff2') format('woff2'),
          url('../../public/assets/fonts/Baltica.woff') format('woff');
     font-weight: normal;
