@@ -9,7 +9,9 @@ const Products = () => {
     fetch(`https://66ea9bdb55ad32cda479a3ae.mockapi.io/items/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data))
-      .catch((error) => console.error("Error fetching product details:", error));
+      .catch((error) =>
+        console.error("Error fetching product details:", error)
+      );
   }, [id]);
 
   if (!product) {
