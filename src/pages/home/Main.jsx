@@ -1,9 +1,17 @@
+import React from "react";
 import { Link } from "react-router-dom";
+
 import Header from "../../components/header/Header";
 import "./home.scss";
 import Product from "../../components/product/Product";
 
 const Main = () => {
+  const [count, setCount] = React.useState(["0"]);
+
+  fetch("https://66ea9bdb55ad32cda479a3ae.mockapi.io/items")
+    .then((res) => res.json())
+    .then((data) => setCount(data.length));
+
   return (
     <div className="content">
       <div className="main">
@@ -39,7 +47,7 @@ const Main = () => {
               <Link>Цена</Link>
               <Link>Другие</Link>
             </nav>
-            <div className="main__count">370 товаров</div>
+            <div className="main__count">{count} товаров</div>
             <div className="main__pages">
               {/* product */}
               <Product />

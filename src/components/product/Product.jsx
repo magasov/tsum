@@ -31,7 +31,7 @@ const Product = () => {
   return (
     <>
       {loadingSkeleton
-        ? [...new Array(6)].map((_, index) => <Skeleton />)
+        ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
         : data.map((items) => (
             <div className="product" key={items.id}>
               <Link to={`/products/${items.id}`}>
