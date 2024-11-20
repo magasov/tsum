@@ -30,31 +30,29 @@ const Product = () => {
 
   return (
     <>
-      {loadingSkeleton ? (
-        [...new Array(6)].map((_, index) => (
-            <Skeleton />
-        ))
-      ) : (
-        data.map((items) => (
-          <div className="product" key={items.id}>
-            <Link to={`/products/${items.id}`}></Link><img src={items.image} alt="images" /></Link>
-            <h3>{items.title}</h3>
-            <p>{items.desc}</p>
-            <h4>{items.price} ₽</h4>
-            {fav[items.id] ? (
-              <StarIcon
-                onClick={() => onClickFav(items.id)}
-                className="product__icon"
-              />
-            ) : (
-              <StarBorderIcon
-                onClick={() => onClickFav(items.id)}
-                className="product__icon"
-              />
-            )}
-          </div>
-        ))
-      )}
+      {loadingSkeleton
+        ? [...new Array(6)].map((_, index) => <Skeleton />)
+        : data.map((items) => (
+            <div className="product" key={items.id}>
+              <Link to={`/products/${items.id}`}>
+                <img src={items.image} alt="images" />
+              </Link>
+              <h3>{items.title}</h3>
+              <p>{items.desc}</p>
+              <h4>{items.price} ₽</h4>
+              {fav[items.id] ? (
+                <StarIcon
+                  onClick={() => onClickFav(items.id)}
+                  className="product__icon"
+                />
+              ) : (
+                <StarBorderIcon
+                  onClick={() => onClickFav(items.id)}
+                  className="product__icon"
+                />
+              )}
+            </div>
+          ))}
     </>
   );
 };
