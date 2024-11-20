@@ -1,0 +1,139 @@
+.main__nav {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    height: 50.39px;
+    align-items: center;
+    color: #99a0ad;
+    font-size: 12px;
+
+    a {
+        color: #99a0ad;
+        letter-spacing: .04em;
+    }
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0 16px;
+    
+    .products__one {
+        flex: 1;
+        display: flex;
+
+        .products__slider {
+            width: 66px;
+            height: 103px;
+            border: 1px solid #F94F0D;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        img {
+            width: 454px;
+            height: 700px;
+        }
+    }
+
+    .products__two {
+        width: 384px;
+        padding: 8px 8px 0 12px;
+
+        h2 {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        b {
+            color: #222;
+
+            span {
+                color: #666;
+                font-weight: 300;
+            }
+        }
+
+        .products__btn {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            gap: 8px;
+
+            button {
+                width: 100%;
+                height: 40px;
+                border: none;
+                font-size: 15px;
+                border-radius: 10px;
+                color: #fff;
+                font-weight: 600;
+            }
+
+            :first-child {
+                background: #F94F0D;
+            }
+
+            :last-child {
+                background: #1B1B1B;
+            }
+        }
+    }
+}
+
+.products__title {
+    width: 100%;
+    border-top: 1px solid rgb(226, 226, 226);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    div {
+        flex: 1;
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+        }
+    }
+
+    .products__title-two {
+        margin-left: 30px;
+    }
+
+    .products__title-three {
+        ul {
+            li {
+                list-style: disc;
+                color: #666;
+            }
+        }
+    }
+}
+
+.loader__with {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
