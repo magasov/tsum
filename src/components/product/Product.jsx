@@ -21,10 +21,11 @@ const Product = () => {
   };
 
   React.useEffect(() => {
-    const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
+    let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
     
     for(let key in fav){
       const product = data.find(product => product.id == key);
+      
       if(fav[key]){
         if(!favouritesLocalArray.find(product => product.id == key)){
           favouritesLocalArray.push(product);
@@ -34,7 +35,7 @@ const Product = () => {
       }
     }
     localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
-    console.log(favouritesLocalArray);
+    favouritesLocalArray = JSON.parse(localStorage.getItem("favourites"));
   }, [fav])
 
   React.useEffect(() => {
@@ -46,7 +47,6 @@ const Product = () => {
       });
     window.scrollTo(0, 0);
     const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
-    // console.log(favouritesLocalArr);
     
     if(favouritesLocalArray.length){
       const favouritesLocalObj = {};

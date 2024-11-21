@@ -7,10 +7,9 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function Favourites(){
     const [ fav, setFav ] = React.useState(JSON.parse(localStorage.getItem("favourites")) || []);
     function deleteFavourites(item){
-        console.log(item);
-        
-        fav.splice(fav.indexOf(item), 1);
-        localStorage.setItem("favourites", JSON.stringify(fav));
+        const newFav = fav.filter(product => product != item);
+        setFav(newFav);
+        localStorage.setItem("favourites", JSON.stringify(newFav));
     }
     
     return(
