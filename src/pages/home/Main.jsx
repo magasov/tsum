@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "./home.scss";
 import Product from "../../components/product/Product";
+import PopupSort from "../../components/popupSort/PopupSort";
 
 const Main = () => {
   const [count, setCount] = React.useState(["0"]);
+
+  const [popup, setPopup] = React.useState(false);
 
   fetch("https://66ea9bdb55ad32cda479a3ae.mockapi.io/items")
     .then((res) => res.json())
@@ -39,7 +42,7 @@ const Main = () => {
           </aside>
           <div className="main__product">
             <nav className="main__nav">
-              <Link>Выбор ЦУМА</Link>
+              <Link onClick={() => setPopup(true)}>Выбор ЦУМА</Link>
               <Link>Бренды</Link>
               <Link>Материал корпуса</Link>
               <Link>Механизм</Link>
@@ -47,6 +50,7 @@ const Main = () => {
               <Link>Цена</Link>
               <Link>Другие</Link>
             </nav>
+            {popup && <PopupSort popupProps={setPopup} />}
             <div className="main__count">{count} товаров</div>
             <div className="main__pages">
               {/* product */}
