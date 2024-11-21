@@ -53,6 +53,7 @@ const Product = () => {
         
       })
       setFav(favouritesLocalObj);
+      
     }
   }, []);
 
