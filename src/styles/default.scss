@@ -1,24 +1,24 @@
 * {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-decoration: none;
-    color: inherit;
-    // font-family: "Baltica";
-    font-family: 'Nunito', sans-serif;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  // font-family: "Baltica";
+  font-family: "Nunito", sans-serif;
 }
 
 @font-face {
-    // font-family: 'Baltica';
-    font-family: 'Nunito', sans-serif;
-    src: url('../../public/assets/fonts/Baltica.woff2') format('woff2'),
-         url('../../public/assets/fonts/Baltica.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  // font-family: 'Baltica';
+  font-family: "Nunito", sans-serif;
+  src: url("../../public/assets/fonts/Baltica.woff2") format("woff2"),
+    url("../../public/assets/fonts/Baltica.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .content {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
