@@ -1,73 +1,137 @@
+import { Link } from "react-router-dom";
 import "./footer.scss";
 import appStore from "./img/app-store.298680ce.svg";
 const Footer = () => {
   return (
-
-      <footer className="footer">
-        <div className="footer__content">
-            <div className="columsF">
-                <div className="colum1">
-                  <h4>О ЦУМ</h4>
-                  <ul>
-                    <li><a href="#">О магазине</a></li>
-                    <li><a href="#">Новости и события</a></li>
-                    <li><a href="#">Пункты выдачи заказов ЦУМ</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="#">Наша история</a></li>
-                    <li><a href="#">Карьера</a></li>
-                    <li><a href="#">Коллекция</a></li>
-                  </ul>
-                </div>
-                <div className="colum2">
-                  <h4>ОНЛАЙН ПОКУПКИ</h4>
-                  <ul>
-                    <li><a href="#">Мобильное приложение</a></li>
-                    <li><a href="#">Оплата</a></li>
-                    <li><a href="#">Доставка</a></li>
-                    <li><a href="#">Обмен и возврат</a></li>
-                    <li><a href="#">Условия продажи</a></li>
-                    <li><a href="#">Скидка на первый заказ</a></li>
-                  </ul>
-                </div>
-                <div className="colum3">
-                  <h4>УСЛУГИ</h4>
-                  <ul>
-                    <li><a href="#">Шопинг-сервисы</a></li>
-                    <li><a href="#">Подарочная карта</a></li>
-                    <li><a href="#">Подарочная упаковка</a></li>
-                    <li><a href="#">Кафе и рестораны</a></li>
-                    <li><a href="#">Такси для клинтов</a></li>
-                    <li><a href="#">Карта лояльности</a></li>
-                  </ul>
-                </div>
-                <div className="colum4">
-                  <h4>КОНТАКТЫ</h4>
-                  <ul>
-                    <li><a href="#">Помощь</a></li>
-                    <li><a href="#">+7 800 500 80 00</a></li>
-                    <li><a href="#">+7 495 933 73 00</a></li>
-                    <li><a href="#">hotline@tsum.ru</a></li>
-                  </ul>
-                  <h4>НАШЕ ПРИЛОЖЕНИЕ</h4>
-                  <div className="footerApp">
-                    <div className="footerAppL">
-                      <a href="#">
-                        <img src="qrInst.svg" width="94" height="94" title="QR код" data-testid="qr-code" />
-                      </a>
-                    </div>
-                    <div className="footerAppR">
-                      <ul>
-                      <li><a href="#"><svg src={appStore} style={{width:"90px", height:"24px"}}></svg></a></li>
-                      <li><a href="#"><img src="./img/google-play.svg" alt="#"/></a></li>
-                      <li><a href="#"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+    <footer className="footer">
+      <div className="footer__content">
+        <div className="columsF">
+          <div className="colum1">
+            <h4>О ЦУМ</h4>
+            <ul>
+              <li>
+                <Link to="/">О магазине</Link>
+              </li>
+              <li>
+                <Link to="/">Новости и события</Link>
+              </li>
+              <li>
+                <Link to="/">Пункты выдачи заказов ЦУМ</Link>
+              </li>
+              <li>
+                <Link to="/">Контакты</Link>
+              </li>
+              <li>
+                <Link to="/">Наша история</Link>
+              </li>
+              <li>
+                <Link to="/">Карьера</Link>
+              </li>
+              <li>
+                <Link to="/">Коллекция</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="colum2">
+            <h4>ОНЛАЙН ПОКУПКИ</h4>
+            <ul>
+              <li>
+                <Link to="/">Мобильное приложение</Link>
+              </li>
+              <li>
+                <Link to="/">Оплата</Link>
+              </li>
+              <li>
+                <Link to="/">Доставка</Link>
+              </li>
+              <li>
+                <Link to="/">Обмен и возврат</Link>
+              </li>
+              <li>
+                <Link to="/">Условия продажи</Link>
+              </li>
+              <li>
+                <Link to="/">Скидка на первый заказ</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="colum3">
+            <h4>УСЛУГИ</h4>
+            <ul>
+              <li>
+                <Link to="/">Шопинг-сервисы</Link>
+              </li>
+              <li>
+                <Link to="/">Подарочная карта</Link>
+              </li>
+              <li>
+                <Link to="/">Подарочная упаковка</Link>
+              </li>
+              <li>
+                <Link to="/">Кафе и рестораны</Link>
+              </li>
+              <li>
+                <Link to="/">Такси для клинтов</Link>
+              </li>
+              <li>
+                <Link to="/">Карта лояльности</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="colum4">
+            <h4>КОНТАКТЫ</h4>
+            <ul>
+              <li>
+                <Link to="/">Помощь</Link>
+              </li>
+              <li>
+                <Link to="/">+7 800 500 80 00</Link>
+              </li>
+              <li>
+                <Link to="/">+7 495 933 73 00</Link>
+              </li>
+              <li>
+                <Link to="/">hotline@tsum.ru</Link>
+              </li>
+            </ul>
+            <h4>НАШЕ ПРИЛОЖЕНИЕ</h4>
+            <div className="footerApp">
+              <div className="footerAppL">
+                <Link to="/">
+                  <img
+                    src="qrInst.svg"
+                    width="94"
+                    height="94"
+                    title="QR код"
+                    data-testid="qr-code"
+                  />
+                </Link>
+              </div>
+              <div className="footerAppR">
+                <ul>
+                  <li>
+                    <Link to="/">
+                      <svg
+                        src={appStore}
+                        style={{ width: "90px", height: "24px" }}
+                      ></svg>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/">
+                      <img src="./img/google-play.svg" alt="#" />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/"></Link>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-      </footer>
-
+      </div>
+    </footer>
   );
 };
 
