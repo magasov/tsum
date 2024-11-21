@@ -10,7 +10,7 @@ import Skeleton from "../skeleton/Skeleton";
 const Product = () => {
   const [data, setData] = React.useState([]);
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
-  const [fav, setFav] = React.useState(null);
+  const [fav, setFav] = React.useState({});
 
   const onClickFav = (id) => {
     
@@ -21,20 +21,20 @@ const Product = () => {
   };
 
   React.useEffect(() => {
-    const favouritesLocalArr = JSON.parse(localStorage.getItem("favourites")) || [];
+    const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
     
     for(let key in fav){
       const product = data.find(product => product.id == key);
       if(fav[key]){
-        if(!favouritesLocalArr.find(product => product.id == key)){
-          favouritesLocalArr.push(product);
+        if(!favouritesLocalArray.find(product => product.id == key)){
+          favouritesLocalArray.push(product);
         }
       }else{
-        favouritesLocalArr.splice(favouritesLocalArr.indexOf(product), 1);
+        favouritesLocalArray.splice(favouritesLocalArray.indexOf(product), 1);
       }
     }
-    localStorage.setItem("favourites", JSON.stringify(favouritesLocalArr));
-    console.log(favouritesLocalArr);
+    localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
+    console.log(favouritesLocalArray);
   }, [fav])
 
   React.useEffect(() => {
@@ -45,16 +45,16 @@ const Product = () => {
         setLoadingSkeleton(false);
       });
     window.scrollTo(0, 0);
-    const favouritesLocalArr = JSON.parse(localStorage.getItem("favourites")) || [];
+    const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
     // console.log(favouritesLocalArr);
     
-    if(favouritesLocalArr.length){
-      const favouritesLocalArray = {};
-      favouritesLocalArr.map(product => {
-        favouritesLocalArray[product.id] = true;
+    if(favouritesLocalArray.length){
+      const favouritesLocalObj = {};
+      favouritesLocalArray.map(product => {
+        favouritesLocalObj[product.id] = true;
         
       })
-      setFav(favouritesLocalArray);
+      setFav(favouritesLocalObj);
     }
   }, []);
 
@@ -84,7 +84,6 @@ const Product = () => {
             </div>
           ))}
 
-          <Favourites />
     </>
   );
 };
