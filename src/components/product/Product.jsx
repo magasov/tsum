@@ -19,6 +19,24 @@ const Product = () => {
   };
 
   React.useEffect(() => {
+    let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
+    
+    for(let key in fav){
+      const product = data.find(product => product.id == key);
+      
+      if(fav[key]){
+        if(!favouritesLocalArray.find(product => product.id == key)){
+          favouritesLocalArray.push(product);
+        }
+      }else{
+        favouritesLocalArray.splice(favouritesLocalArray.indexOf(product), 1);
+      }
+    }
+    localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
+    favouritesLocalArray = JSON.parse(localStorage.getItem("favourites"));
+  }, [fav])
+
+  React.useEffect(() => {
     fetch("https://66ea9bdb55ad32cda479a3ae.mockapi.io/items")
       .then((res) => res.json())
       .then((res) => {
@@ -26,6 +44,16 @@ const Product = () => {
         setLoadingSkeleton(false);
       });
     window.scrollTo(0, 0);
+    const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
+    
+    if(favouritesLocalArray.length){
+      const favouritesLocalObj = {};
+      favouritesLocalArray.map(product => {
+        favouritesLocalObj[product.id] = true;
+        
+      })
+      setFav(favouritesLocalObj);
+    }
   }, []);
 
   return (
