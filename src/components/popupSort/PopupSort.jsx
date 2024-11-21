@@ -3,9 +3,7 @@ import React from "react";
 import "./popupSort.scss";
 import CloseIcon from "@mui/icons-material/Close";
 
-const PopupSort = (setPopup) => {
-  console.log({ setPopup });
-
+const PopupSort = ({ setPopup }) => {
   return (
     <div className="popup">
       <CloseIcon onClick={() => setPopup(false)} className="popup__close" />

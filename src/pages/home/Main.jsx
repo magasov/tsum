@@ -50,7 +50,7 @@ const Main = () => {
               <Link>Цена</Link>
               <Link>Другие</Link>
             </nav>
-            {popup && <PopupSort popupProps={setPopup} />}
+            {popup && <PopupSort setPopup={setPopup} />}
             <div className="main__count">{count} товаров</div>
             <div className="main__pages">
               {/* product */}
