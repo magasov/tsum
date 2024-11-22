@@ -82,9 +82,6 @@ const Footer = () => {
             <h4>КОНТАКТЫ</h4>
             <ul>
               <li>
-                <Link to="/">Помощь</Link>
-              </li>
-              <li>
                 <Link to="/">+7 800 500 80 00</Link>
               </li>
               <li>
@@ -128,6 +125,31 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="footerDown">
+        <div className="footerDownContent">
+          <div className="footerDC1">
+            <p>
+            © ООО «Меркури Мода», 2024
+            </p>
+          </div>
+          <div className="footerDC2">
+            <p>
+              Политика конфиденциальности
+            </p>
+          </div>
+          <div className="footerDC3">
+            <p>
+              Мы в социальных сетях
+            </p>
+          </div>
+          <div className="footerDC4">
+            <p>
+              Россия
+            </p>
           </div>
         </div>
       </div>
