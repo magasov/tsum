@@ -26,7 +26,7 @@ export default function Favourites(){
                                 <h4>{items.price} ₽</h4>
                                 <CloseIcon className="cross" onClick={() => deleteFavourites(items)} />
                             </div>
-                        )) : (<h1>Нету товарой</h1>)
+                        )) : (<h1>Нету товаров</h1>)
                     }
             </main>
         </div>

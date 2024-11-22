@@ -8,6 +8,31 @@ import Loader from "../../components/loader/Loader";
 const Products = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState(null);
+  const [fav, setFav] = React.useState({});
+
+  const onClickFav = (id) => {
+    setFav((prevFav) => ({
+      ...prevFav,
+      [id]: !prevFav[id],
+    }));
+  };
+
+  React.useEffect(() => {
+    let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
+    
+    for(let key in fav){
+      
+      if(fav[key]){
+        if(!favouritesLocalArray.find(product => product.id == key)){
+          favouritesLocalArray.push(product);
+        }
+      }else{
+        favouritesLocalArray.splice(favouritesLocalArray.indexOf(product), 1);
+      }
+    }
+    localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
+    favouritesLocalArray = JSON.parse(localStorage.getItem("favourites"));
+  }, [fav])
 
   React.useEffect(() => {
     fetch(`https://66ea9bdb55ad32cda479a3ae.mockapi.io/items/${id}`)
@@ -16,6 +41,16 @@ const Products = () => {
       .catch((error) =>
         console.error("Error fetching product details:", error)
       );
+      const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
+    
+      if(favouritesLocalArray.length){
+        const favouritesLocalObj = {};
+        favouritesLocalArray.map(product => {
+          favouritesLocalObj[product.id] = true;
+          
+        })
+        setFav(favouritesLocalObj);
+      }
   }, [id]);
 
   if (!product) {
@@ -51,7 +86,11 @@ const Products = () => {
           <br />
           <div className="products__btn">
             <button>Купить</button>
-            <button>Добавить в избранное</button>
+            {
+              (fav[product.id]) ?
+              <button onClick={() => onClickFav(product.id)}>Удалить из избранного</button> :
+              <button onClick={() => onClickFav(product.id)}>Добавить в избранное</button>
+            }
           </div>
         </div>
       </div>
