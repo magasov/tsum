@@ -25,7 +25,6 @@ const Products = () => {
       setBasket(updateBasket);
       
       localStorage.setItem("basket", JSON.stringify(updateBasket));
-      console.log(JSON.parse(localStorage.getItem("basket")));
     }else{
       const updateBasket = basket.map(item => {
         return item.id === product.id ? {...item, quantity: item.quantity + 1} : item;
