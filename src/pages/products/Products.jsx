@@ -19,20 +19,21 @@ const Products = () => {
   };
 
   const onClickBasket = () => {
-    console.log(basket);
-    
     if(!basket.some(item => item.id == product.id)){
-      product.quantity = 1;
-      setBasket(basket.push(product));
-      
-      localStorage.setItem("basket", JSON.stringify(basket));
-    }else{
-      console.log("Товар уже добавлен");
-      const updateBasket = basket.map(item => {
-        return item.id == product.id ? {...item, quantity: item.quantity++} : item;
-      })
+      const newProduct = {...product, quantity : 1};
+      const updateBasket = [...basket, newProduct];
       setBasket(updateBasket);
-      localStorage.setItem("basket", JSON.stringify(basket));
+      
+      localStorage.setItem("basket", JSON.stringify(updateBasket));
+      console.log(JSON.parse(localStorage.getItem("basket")));
+    }else{
+      const updateBasket = basket.map(item => {
+        return item.id === product.id ? {...item, quantity: item.quantity + 1} : item;
+      })
+
+      setBasket(updateBasket);
+      localStorage.setItem("basket", JSON.stringify(updateBasket));
+      
     }
   }
   React.useEffect(() => {
