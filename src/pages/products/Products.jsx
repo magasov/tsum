@@ -9,14 +9,32 @@ const Products = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState(null);
   const [fav, setFav] = React.useState({});
+  const [basket, setBasket] = React.useState(JSON.parse(localStorage.getItem("basket")) || []);
 
-  const onClickFav = (id) => {
+  const onClickFav = () => {
     setFav((prevFav) => ({
       ...prevFav,
-      [id]: !prevFav[id],
+      [product.id]: !prevFav[product.id],
     }));
   };
 
+  const onClickBasket = () => {
+    console.log(basket);
+    
+    if(!basket.some(item => item.id == product.id)){
+      product.quantity = 1;
+      setBasket(basket.push(product));
+      
+      localStorage.setItem("basket", JSON.stringify(basket));
+    }else{
+      console.log("Товар уже добавлен");
+      const updateBasket = basket.map(item => {
+        return item.id == product.id ? {...item, quantity: item.quantity++} : item;
+      })
+      setBasket(updateBasket);
+      localStorage.setItem("basket", JSON.stringify(basket));
+    }
+  }
   React.useEffect(() => {
     let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
     
@@ -84,11 +102,11 @@ const Products = () => {
           </b>
           <br />
           <div className="products__btn">
-            <button>Купить</button>
+            <button onClick={() => onClickBasket()}>Купить</button>
             {
               (fav[product.id]) ?
-              <button onClick={() => onClickFav(product.id)}>Удалить из избранного</button> :
-              <button onClick={() => onClickFav(product.id)}>Добавить в избранное</button>
+              <button onClick={() => onClickFav()}>Удалить из избранного</button> :
+              <button onClick={() => onClickFav()}>Добавить в избранное</button>
             }
           </div>
         </div>
