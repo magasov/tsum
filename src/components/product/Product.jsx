@@ -15,7 +15,8 @@ const Product = () => {
     setFav((prevFav) => ({
       ...prevFav,
       [id]: !prevFav[id],
-    }));
+    }
+  ));
   };
 
   React.useEffect(() => {
@@ -25,11 +26,11 @@ const Product = () => {
       const product = data.find(product => product.id == key);
       
       if(fav[key]){
-        if(!favouritesLocalArray.find(product => product.id == key)){
+        if(!favouritesLocalArray.some(item => item.id == key)){
           favouritesLocalArray.push(product);
         }
       }else{
-        favouritesLocalArray.splice(favouritesLocalArray.indexOf(product), 1);
+        favouritesLocalArray = favouritesLocalArray.filter(item => item.id != key);
       }
     }
     localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
