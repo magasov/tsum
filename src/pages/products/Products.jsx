@@ -9,25 +9,42 @@ const Products = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState(null);
   const [fav, setFav] = React.useState({});
+  const [basket, setBasket] = React.useState(JSON.parse(localStorage.getItem("basket")) || []);
 
-  const onClickFav = (id) => {
+  const onClickFav = () => {
     setFav((prevFav) => ({
       ...prevFav,
-      [id]: !prevFav[id],
+      [product.id]: !prevFav[product.id],
     }));
   };
 
+  const onClickBasket = () => {
+    if(!basket.some(item => item.id == product.id)){
+      const newProduct = {...product, quantity : 1};
+      const updateBasket = [...basket, newProduct];
+      setBasket(updateBasket);
+      
+      localStorage.setItem("basket", JSON.stringify(updateBasket));
+    }else{
+      const updateBasket = basket.map(item => {
+        return item.id === product.id ? {...item, quantity: item.quantity + 1} : item;
+      })
+
+      setBasket(updateBasket);
+      localStorage.setItem("basket", JSON.stringify(updateBasket));
+      
+    }
+  }
   React.useEffect(() => {
     let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
     
     for(let key in fav){
-      
       if(fav[key]){
-        if(!favouritesLocalArray.find(product => product.id == key)){
+        if(!favouritesLocalArray.some(item => item.id == key)){
           favouritesLocalArray.push(product);
         }
       }else{
-        favouritesLocalArray.splice(favouritesLocalArray.indexOf(product), 1);
+        favouritesLocalArray = favouritesLocalArray.filter(item => item.id != key);
       }
     }
     localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
@@ -85,11 +102,11 @@ const Products = () => {
           </b>
           <br />
           <div className="products__btn">
-            <button>Купить</button>
+            <button onClick={() => onClickBasket()}>Купить</button>
             {
               (fav[product.id]) ?
-              <button onClick={() => onClickFav(product.id)}>Удалить из избранного</button> :
-              <button onClick={() => onClickFav(product.id)}>Добавить в избранное</button>
+              <button onClick={() => onClickFav()}>Удалить из избранного</button> :
+              <button onClick={() => onClickFav()}>Добавить в избранное</button>
             }
           </div>
         </div>
