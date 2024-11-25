@@ -10,6 +10,19 @@ const Products = () => {
   const [product, setProduct] = React.useState(null);
   const [fav, setFav] = React.useState({});
   const [basket, setBasket] = React.useState(JSON.parse(localStorage.getItem("basket")) || []);
+  const [addBasketMessage, setAddBasketMessage] = React.useState(false);
+  const [messageStyle, setMessageStyle] = React.useState({
+    position: "fixed",
+    top: "-60px",
+    right: "20px",
+    backgroundColor: "#F94F0D",
+    color: "white",
+    padding: "14px",
+    borderRadius: "10px",
+    fontSize: "18px",
+    opacity: 0,
+    transition: "all 0.34s"
+  })
 
   const onClickFav = () => {
     setFav((prevFav) => ({
@@ -32,7 +45,6 @@ const Products = () => {
 
       setBasket(updateBasket);
       localStorage.setItem("basket", JSON.stringify(updateBasket));
-      
     }
   }
   React.useEffect(() => {
@@ -70,6 +82,32 @@ const Products = () => {
       }
   }, [id]);
 
+  const showMessage = () => {
+    setAddBasketMessage(true);
+    setTimeout(() => {
+      setMessageStyle(prevStyle => ({
+        ...prevStyle,
+        top: "20px",
+        opacity: 1
+      }))
+    }, 200)
+    setTimeout(() => {
+      setMessageStyle(prevStyle => ({
+        ...prevStyle,
+        top: "60px",
+        opacity: 0
+      }))
+      setTimeout(() => {
+        setAddBasketMessage(false)
+        setMessageStyle(prevStyle => ({
+          ...prevStyle,
+          top: "-60px",
+        }))
+      }
+      , 100)
+    }, 800)
+  }
+
   if (!product) {
     return (
       <div className="loader__with">
@@ -80,6 +118,9 @@ const Products = () => {
 
   return (
     <div className="content">
+      {
+        addBasketMessage && (<div style={messageStyle}>Товар добавлен в корзину</div>)
+      }
       <Header />
       <div className="main__nav">
         <Link to="/">Главная</Link>/<Link to="/">Каталог</Link>/
@@ -102,7 +143,10 @@ const Products = () => {
           </b>
           <br />
           <div className="products__btn">
-            <button onClick={() => onClickBasket()}>Купить</button>
+            <button onClick={() => {
+              onClickBasket();
+              showMessage();
+            }}>Купить</button>
             {
               (fav[product.id]) ?
               <button onClick={() => onClickFav()}>Удалить из избранного</button> :
