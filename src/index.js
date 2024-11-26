@@ -4,10 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import "./styles/default.scss";
-
+import Footer from "./components/footer/Footer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <App />
+    <Footer />
   </BrowserRouter>
 );
