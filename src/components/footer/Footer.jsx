@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./footer.scss";
-import appStore from "./img/app-store.298680ce.svg";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -91,36 +90,31 @@ const Footer = () => {
                 <Link to="/">hotline@tsum.ru</Link>
               </li>
             </ul>
-            <h4>НАШЕ ПРИЛОЖЕНИЕ</h4>
+            <div className="NP" style={{height: "48px"}}>
+              <h4>НАШЕ ПРИЛОЖЕНИЕ</h4>
+            </div>
             <div className="footerApp">
               <div className="footerAppL">
                 <Link to="/">
-                  <img
-                    src="qrInst.svg"
-                    width="94"
-                    height="94"
-                    title="QR код"
-                    data-testid="qr-code"
-                  />
+                <img   src="img/qrcod.png" style={{ width: "100px", height: "100px"}} alt="#" />
                 </Link>
               </div>
               <div className="footerAppR">
                 <ul>
                   <li>
                     <Link to="/">
-                      <svg
-                        src={appStore}
-                        style={{ width: "90px", height: "24px" }}
-                      ></svg>
+                      <img src="img/app_store.png" alt="#" />                        
                     </Link>
                   </li>
                   <li>
                     <Link to="/">
-                      <img src="./img/google-play.svg" alt="#" />
+                      <img src="img/google_s.png" alt="#" />                        
                     </Link>
                   </li>
                   <li>
-                    <Link to="/"></Link>
+                    <Link to="/">
+                    <img src="img/app_gall.png" alt="#" />                        
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -128,25 +122,25 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
+      <hr style={{width: "99.9%", height: "0.5px", backgroundColor: "gray"}}/>
       <div className="footerDown">
         <div className="footerDownContent">
-          <div className="footerDC1">
+          <div className="footerDC">
             <p>
             © ООО «Меркури Мода», 2024
             </p>
           </div>
-          <div className="footerDC2">
+          <div className="footerDC">
             <p>
               Политика конфиденциальности
             </p>
           </div>
-          <div className="footerDC3">
+          <div className="footerDC">
             <p>
               Мы в социальных сетях
             </p>
           </div>
-          <div className="footerDC4">
+          <div className="footerDC">
             <p>
               Россия
             </p>

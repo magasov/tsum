@@ -42,24 +42,30 @@ grid-template-columns: repeat(4, 1fr);
 }
 .footerApp{
     display: flex;  
+    gap: 12px;
 }
 img{
     width: 90px;
     height: 24px;
 }
 
-.footerDownContent{
-    width: 1200px;
-    margin: 0 auto;
-    padding-top: 16px;
-    font-family: Geometria;
-    font-weight: 400;
-    font-size: 13px;
-    letter-spacing: 0;
-    text-transform: none;
-    text-decoration: none;
+.footerDown{
+    color: #fff;
+    background-color: #1b1b1b;
     display: flex;
-    justify-content: space-between;
-    color: white;
     padding: 12px 0;
+    justify-content: center;
+}
+.footerDownContent{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 16px;
+}
+.footerDC{
+    flex-grow: 5;
+    width: 300px;
 }
