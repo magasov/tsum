@@ -1,5 +1,42 @@
-// .contentWindow{
-//     width: 400px;
-//     height: 150px;
-//     background-color: black;
-// }
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 389px;
+    outline: none;
+}
+
+.CardProfile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 389px;
+    outline: none;
+
+}
+.CardMain{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.hSelection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 56px;
+}
+
+Selection h4{
+    font-family: Lenta;
+    font-size: 19px;
+    font-weight: normal;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}

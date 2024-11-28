@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.scss";
-import Profile from "../profile/Profile";
+import TransitionsModal from "../profile/TransitionsModal";
 
 const Header = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <div className="content">
       <header className="header">
         <ul>
           <li>Search</li>
           <li>
-            <span onClick={() => Profile(!open)} style={{ cursor: "pointer" }}>
+            <span onClick={() => setOpen(true)} sstyle={{ cursor: "pointer" }}>
               Profile
             </span>
           </li>
@@ -18,6 +18,7 @@ const Header = () => {
           <li>Back</li>
         </ul>
       </header>
+      {(open && <TransitionsModal />)}
     </div>
   );
 };
