@@ -14,9 +14,13 @@ export default function Favourites(){
     
     return(
         <div className="content">
+            {
+                !fav.length && <h1 style={{textAlign: "center"}}>Нету товаров</h1>
+            }
             <main className="favourite__main">
+                
                 {
-                        (fav.length) ? fav.map(items => (
+                        (!fav.length) ? false : fav.map(items => (
                             <div className="product" key={items.id}>
                                 <Link to={`/products/${items.id}`}>
                                     <img src={items.image} alt="images" />
@@ -26,7 +30,8 @@ export default function Favourites(){
                                 <h4>{items.price} ₽</h4>
                                 <CloseIcon className="cross" onClick={() => deleteFavourites(items)} />
                             </div>
-                        )) : (<h1>Нету товаров</h1>)
+                        ))
+                        
                     }
             </main>
         </div>

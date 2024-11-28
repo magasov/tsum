@@ -14,9 +14,12 @@ export default function Basket(){
     
     return(
         <div className="content">
+            {
+                !basket.length && <h1 style={{textAlign: "center"}}>Корзина пуста</h1>
+            }
             <main className="favourite__main">
                 {
-                        (basket.length) ? basket.map(items => (
+                        (!basket.length) ? false : basket.map(items => (
                             <div className="product" key={items.id}>
                                 <Link to={`/products/${items.id}`}>
                                     <img src={items.image} alt="images" />
@@ -27,7 +30,7 @@ export default function Basket(){
                                 <h4>{items.price} ₽</h4>
                                 <CloseIcon className="cross" onClick={() => deleteFavourites(items)} />
                             </div>
-                        )) : (<h1>Корзина пуста</h1>)
+                        ))
                     }
             </main>
         </div>
