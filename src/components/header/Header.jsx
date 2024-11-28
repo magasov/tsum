@@ -10,7 +10,7 @@ const Header = () => {
         <ul>
           <li>Search</li>
           <li>
-            <span onClick={() => setOpen(true)} sstyle={{ cursor: "pointer" }}>
+            <span onClick={() => setOpen(true)} style={{ cursor: "pointer" }}>
               Profile
             </span>
           </li>
@@ -18,7 +18,7 @@ const Header = () => {
           <li>Back</li>
         </ul>
       </header>
-      {(open && <TransitionsModal />)}
+      {(open && <TransitionsModal open = {open}/>)}
     </div>
   );
 };
