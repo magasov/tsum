@@ -43,11 +43,12 @@ grid-template-columns: repeat(4, 1fr);
 .footerApp{
     display: flex;  
     gap: 12px;
+    img{
+        width: 90px;
+        height: 24px;
+    }
 }
-img{
-    width: 90px;
-    height: 24px;
-}
+
 
 .footerDown{
     color: #fff;
