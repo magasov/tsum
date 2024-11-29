@@ -1,6 +1,3 @@
-Here's a `README.md` script for your Tsum clone project:
-
-````markdown
 # Tsum Clone
 
 Welcome to the Tsum Clone project! This is a clone of the popular Tsum Tsum store, built using React.js. It includes a variety of products displayed with smooth UI/UX, allowing you to explore, filter, and interact with different items in a user-friendly way.
@@ -32,6 +29,7 @@ Make sure you have `Node.js` installed. If not, you can download it from [here](
    git clone https://github.com/magasov/tsum-clone.git
    cd tsum-clone
    ```
+
 ````
 
 2. Install the dependencies:
@@ -96,3 +94,4 @@ Enjoy building and customizing your Tsum Clone! 🎉
 
 This `README.md` file serves as documentation for anyone looking to use or contribute to your Tsum Clone project!
 ```
+````
