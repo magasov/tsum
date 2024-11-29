@@ -72,3 +72,7 @@
 ## Страница с товарами (часы)
 
 ![alt text](./public/readme/time.png)
+
+## Страница с товаром
+
+![alt text](./public/readme/product.png)
