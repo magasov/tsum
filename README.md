@@ -1,31 +1,41 @@
-# Tsum Clone
+# Клон Tsum
 
-Welcome to the Tsum Clone project! This is a clone of the popular Tsum Tsum store, built using React.js. It includes a variety of products displayed with smooth UI/UX, allowing you to explore, filter, and interact with different items in a user-friendly way.
+Добро пожаловать в проект Tsum Clone! Это клон популярного магазина Tsum Tsum, созданный с использованием React.js. Включает в себя разнообразные товары с плавным UI/UX, позволяя пользователю просматривать, фильтровать и взаимодействовать с товарами в удобном интерфейсе.
 
-## Features
+## Особенности
 
-- **Product Display:** Display a range of Tsum Tsum products in a grid layout.
-- **Responsive Design:** The site adapts to different screen sizes.
-- **Filter Functionality:** Filter products based on categories.
-- **Smooth Navigation:** Easy navigation with a clean and simple UI.
-- **Add to Cart:** Users can add items to their cart for a fun shopping experience.
+- **Отображение товаров:** Товары Tsum Tsum отображаются в виде сетки.
+- **Адаптивный дизайн:** Сайт адаптируется под различные размеры экрана.
+- **Функционал фильтрации:** Фильтрация товаров по категориям.
+- **Плавная навигация:** Удобная навигация с простым и чистым интерфейсом.
+- **Добавление в корзину:** Пользователи могут добавлять товары в корзину для удобного покупательского опыта.
 
-## Technologies Used
+## Используемые технологии
 
 - React.js
-- CSS for styling
-- React Router (optional, for multi-page functionality)
+- CSS для стилизации
+- React Router (по желанию, для многоплатформенной функциональности)
 
-## Getting Started
+## Как начать
 
-### Prerequisites
+### Пр prerequisites
 
-Make sure you have `Node.js` installed. If not, you can download it from [here](https://nodejs.org/).
+Убедитесь, что у вас установлен `Node.js`. Если нет, скачайте его с [официального сайта](https://nodejs.org/).
 
-### Installation
+### Установка
 
-1. Clone the repository:
+1. Клонируйте репозиторий:
    ```bash
    git clone https://github.com/magasov/tsum-clone.git
    cd tsum-clone
+   ```
+2. Установите зависимости:
+
+   ```bash
+   npm install
+   ```
+
+3. Запуск приложения
+   ```bash
+   npm run start
    ```
