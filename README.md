@@ -10,11 +10,27 @@
 - **Плавная навигация:** Удобная навигация с простым и чистым интерфейсом.
 - **Добавление в корзину:** Пользователи могут добавлять товары в корзину для удобного покупательского опыта.
 
-## Используемые технологии
+## 🚀 Используемые технологии:
 
-- React.js
-- CSS для стилизации
-- React Router (по желанию, для многоплатформенной функциональности)
+- React.js 🧩
+- React Router 🔀
+- React Bootstrap ⚙️
+- Bootstrap 🌐
+- CSS 🎨
+- Sass 💅
+- Swiper 🌀
+- Axios 🌍
+- @mui/material ⚛️
+- @mui/icons-material 🔲
+- @emotion/react 🎨
+- @emotion/styled ✍️
+- React Content Loader ⌛
+- Web Vitals 📊
+- Jest 🧪
+- @testing-library/react 🔍
+- @testing-library/jest-dom 🔒
+- React Scripts ⚡
+- React DOM 🖥️
 
 ## Как начать
 
