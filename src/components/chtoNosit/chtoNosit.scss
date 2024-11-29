@@ -1,0 +1,53 @@
+.chtoNosit {
+    width: 100%;
+    overflow: hidden; 
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #f94f0d;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 120%;
+        margin: 20px 0;
+        letter-spacing: 1.2px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+  
+    .swiper-container {
+      width: 100%; 
+    }
+  
+    .swiper-slide {
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+  
+      img {
+        width: 100%; 
+        height: auto;
+        object-fit: cover; 
+      }
+    }
+  
+    .swiper-pagination {
+      bottom: 10px; 
+      text-align: center; 
+      z-index: 10; 
+    }
+    
+    .swiper-pagination-bullet {
+      background: rgba(255, 255, 255, 0.7); 
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      opacity: 1 !important;
+    }
+  
+    .swiper-pagination-bullet-active {
+      background: rgba(255, 255, 255, 1); 
+    }
+  }
+  

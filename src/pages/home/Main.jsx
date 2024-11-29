@@ -55,7 +55,6 @@ const Main = () => {
               {popup && <PopupSort setPopup={setPopup} />}
               <div className="main__count">{count} товаров</div>
               <div className="main__pages">
-                {/* product */}
                 <Product />
               </div>
             </div>
