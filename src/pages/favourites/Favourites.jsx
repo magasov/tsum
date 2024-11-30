@@ -17,7 +17,7 @@ export default function Favourites(){
     return(
         <div>
             <Header />
-            <div className=".content-favourites">
+            <div className="content-favourites">
                 {
                     !fav.length && <h1 style={{textAlign: "center"}}>Нету товаров</h1>
                 }
