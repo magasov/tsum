@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Импортируем useLocation
 
 import "./header.scss";
 import TransitionsModal from "../profile/TransitionsModal";
@@ -9,14 +9,12 @@ import GradeIcon from "@mui/icons-material/Grade";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(0);
-  const onclickActive = (index) => setActive(index);
-  console.log(active);
+  const location = useLocation();
 
   const value = [
     {
       title: "Женское",
-      link: "/women",
+      link: "/",
     },
     {
       title: "Мужское",
@@ -27,16 +25,16 @@ const Header = () => {
       link: "/det",
     },
   ];
+
   return (
     <div className="content">
       <header className="header">
         <nav className="nav__left">
           {value.map((obj, index) => (
             <Link
-              onClick={() => onclickActive(index)}
               key={index}
-              className={active === index ? "active" : null}
               to={obj.link}
+              className={location.pathname === obj.link ? "active" : null}
             >
               {obj.title}
             </Link>
@@ -53,10 +51,14 @@ const Header = () => {
             <AccountCircleIcon />
           </li>
           <li>
-            <Link to="/favourites"><GradeIcon /></Link>
+            <Link to="/favourites">
+              <GradeIcon />
+            </Link>
           </li>
           <li>
-            <Link to="/basket"><img src="/assets/img/icons/cart.svg" alt="" /></Link>
+            <Link to="/basket">
+              <img src="/assets/img/icons/cart.svg" alt="" />
+            </Link>
           </li>
         </ul>
       </header>
