@@ -12,7 +12,7 @@
 
     a {
       padding: 10px 0;
-      &:first-child {
+      &.active {
         border-bottom: 2px solid #f94f0d;
       }
     }
@@ -20,7 +20,7 @@
 
   .logo {
     padding-right: 114px;
-    
+
     img {
       width: 103px;
       height: 61px;
@@ -32,7 +32,7 @@
     align-items: center;
     column-gap: 20px;
     li {
-        cursor: pointer;
+      cursor: pointer;
     }
   }
 }

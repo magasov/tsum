@@ -9,13 +9,38 @@ import GradeIcon from "@mui/icons-material/Grade";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(0);
+  const onclickActive = (index) => setActive(index);
+  console.log(active);
+
+  const value = [
+    {
+      title: "Женское",
+      link: "/women",
+    },
+    {
+      title: "Мужское",
+      link: "/man",
+    },
+    {
+      title: "Детское",
+      link: "/det",
+    },
+  ];
   return (
     <div className="content">
       <header className="header">
         <nav className="nav__left">
-          <Link>Женское</Link>
-          <Link to="/man">Мужское</Link>
-          <Link>Детское</Link>
+          {value.map((obj, index) => (
+            <Link
+              onClick={() => onclickActive(index)}
+              key={index}
+              className={active === index ? "active" : null}
+              to={obj.link}
+            >
+              {obj.title}
+            </Link>
+          ))}
         </nav>
         <Link className="logo" to="/">
           <img src="/assets/img/icons/logo.svg" alt="" />
