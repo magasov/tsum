@@ -40,10 +40,10 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/magasov/tsum-magasov.git
+   git clone https://github.com/magasov/tsum.git
    ```
    ```bash
-    cd tsum-magasov
+    cd tsum
    ```
 2. Установите зависимости:
 
