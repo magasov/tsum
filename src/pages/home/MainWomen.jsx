@@ -31,15 +31,23 @@ const MainWomen = () => {
           <div className="main__main">
             <aside>
               <ul>
-                <li>Одежда1</li>
-                <li>Обувь</li>
-                <li>Сумки</li>
-                <li>Аксессуары</li>
-                <li>Часы</li>
-                <li>Ювелирные аксессуары</li>
-                <li>Косметика</li>
-                <li>Apple</li>
-                <li>Интерьер</li>
+                <li>Верхняя одежда</li>
+                <li>Трикотаж</li>
+                <li>Брюки</li>
+                <li>Платья</li>
+                <li>Футболки и топы</li>
+                <li>Юбки</li>
+                <li>Деним</li>
+                <li>Толстовки</li>
+                <li>Жакеты и костюмы</li>
+                <li>Рубашки и блузы</li>
+                <li>Кожа</li>
+                <li>Спорт</li>
+                <li>Комбинезоны</li>
+                <li>Шорты</li>
+                <li>Бельё</li>
+                <li>Домашняя одежда</li>
+                <li>Пляжная одежда</li>
               </ul>
             </aside>
             <div className="main__product">
