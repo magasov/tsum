@@ -1,0 +1,15 @@
+.basket__main {
+    max-width: 1200px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 16px 0;
+    place-items: center;
+}
+.content-basket{
+    height: calc(100vh - 396px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -138,3 +138,28 @@
     justify-content: center;
     
 }
+.quantity-block{
+    height: 40px;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f94f0d;
+    border-radius: 10px;
+    gap: 20px;
+
+    p{
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    button{
+        background-color: #f94f0d;
+        height: 100%;
+        border: none;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+    }
+}
