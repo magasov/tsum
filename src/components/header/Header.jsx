@@ -28,10 +28,10 @@ const Header = () => {
             <AccountCircleIcon />
           </li>
           <li>
-            <GradeIcon />
+            <Link to="/favourites"><GradeIcon /></Link>
           </li>
           <li>
-            <img src="/assets/img/icons/cart.svg" alt="" />
+            <Link to="/basket"><img src="/assets/img/icons/cart.svg" alt="" /></Link>
           </li>
         </ul>
       </header>
