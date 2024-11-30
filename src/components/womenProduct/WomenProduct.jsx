@@ -11,14 +11,15 @@ const ProductCard = ({ item, isFav, onFavToggle }) => {
 
   return (
     <div className="product">
-      <div
+      <Link
+        to={`/products/${item.id}`}
         onMouseEnter={() => setHoveredIndex(1)}
         onMouseLeave={() => setHoveredIndex(0)}
       >
-        <Link to={`/products/${item.id}`}>
+        <>
           <img src={item.images[hoveredIndex]} alt="product" />
-        </Link>
-      </div>
+        </>
+      </Link>
       <div className="img__brand">
         <img src={item.title} alt="brand" />
       </div>
