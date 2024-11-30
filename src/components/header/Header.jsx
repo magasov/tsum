@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Импортируем useLocation
 
 import "./header.scss";
 import TransitionsModal from "../profile/TransitionsModal";
@@ -9,13 +9,36 @@ import GradeIcon from "@mui/icons-material/Grade";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const value = [
+    {
+      title: "Женское",
+      link: "/",
+    },
+    {
+      title: "Мужское",
+      link: "/man",
+    },
+    {
+      title: "Детское",
+      link: "/det",
+    },
+  ];
+
   return (
     <div className="content">
       <header className="header">
         <nav className="nav__left">
-          <Link>Женское</Link>
-          <Link to="/man">Мужское</Link>
-          <Link>Детское</Link>
+          {value.map((obj, index) => (
+            <Link
+              key={index}
+              to={obj.link}
+              className={location.pathname === obj.link ? "active" : null}
+            >
+              {obj.title}
+            </Link>
+          ))}
         </nav>
         <Link className="logo" to="/">
           <img src="/assets/img/icons/logo.svg" alt="" />
@@ -28,10 +51,14 @@ const Header = () => {
             <AccountCircleIcon />
           </li>
           <li>
-            <Link to="/favourites"><GradeIcon /></Link>
+            <Link to="/favourites">
+              <GradeIcon />
+            </Link>
           </li>
           <li>
-            <Link to="/basket"><img src="/assets/img/icons/cart.svg" alt="" /></Link>
+            <Link to="/basket">
+              <img src="/assets/img/icons/cart.svg" alt="" />
+            </Link>
           </li>
         </ul>
       </header>
