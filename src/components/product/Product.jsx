@@ -11,31 +11,29 @@ const Product = () => {
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
   const [fav, setFav] = React.useState({});
 
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const userId = currentUser ? currentUser.login : 'guest';
+
   const onClickFav = (id) => {
-    setFav((prevFav) => ({
-      ...prevFav,
-      [id]: !prevFav[id],
-    }
-  ));
+    setFav((prevFav) => {
+      const newFav = { ...prevFav, [id]: !prevFav[id] };
+      saveFavourites(newFav);
+      return newFav;
+    });
   };
 
-  React.useEffect(() => {
-    let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
-    
-    for(let key in fav){
-      const product = data.find(product => product.id == key);
-      
-      if(fav[key]){
-        if(!favouritesLocalArray.some(item => item.id == key)){
+  const saveFavourites = (fav) => {
+    let favouritesLocalArray = [];
+    for (let key in fav) {
+      if (fav[key]) {
+        const product = data.find(product => product.id == key);
+        if (product) {
           favouritesLocalArray.push(product);
         }
-      }else{
-        favouritesLocalArray = favouritesLocalArray.filter(item => item.id != key);
       }
     }
-    localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
-    favouritesLocalArray = JSON.parse(localStorage.getItem("favourites"));
-  }, [fav])
+    localStorage.setItem(`favourites_${userId}`, JSON.stringify(favouritesLocalArray));
+  };
 
   React.useEffect(() => {
     fetch("https://66ea9bdb55ad32cda479a3ae.mockapi.io/items")
@@ -45,17 +43,16 @@ const Product = () => {
         setLoadingSkeleton(false);
       });
     window.scrollTo(0, 0);
-    const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
+    const favouritesLocalArray = JSON.parse(localStorage.getItem(`favourites_${userId}`)) || [];
     
-    if(favouritesLocalArray.length){
+    if (favouritesLocalArray.length) {
       const favouritesLocalObj = {};
-      favouritesLocalArray.map(product => {
+      favouritesLocalArray.forEach(product => {
         favouritesLocalObj[product.id] = true;
-        
-      })
+      });
       setFav(favouritesLocalObj);
     }
-  }, []);
+  }, [userId]);
 
   return (
     <>

@@ -26,6 +26,10 @@ const Header = () => {
     },
   ];
 
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="content">
       <header className="header">
@@ -62,7 +66,7 @@ const Header = () => {
           </li>
         </ul>
       </header>
-      {open && <TransitionsModal open={open} />}
+      {open && <TransitionsModal open={open} onClose={handleCloseModal} />}
     </div>
   );
 };

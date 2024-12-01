@@ -9,7 +9,7 @@ const Products = () => {
   const { id } = useParams();
   const [product, setProduct] = React.useState(null);
   const [fav, setFav] = React.useState({});
-  const [basket, setBasket] = React.useState(JSON.parse(localStorage.getItem("basket")) || []);
+  const [basket, setBasket] = React.useState([]);
   const [addBasketMessage, setAddBasketMessage] = React.useState(false);
   const [messageStyle, setMessageStyle] = React.useState({
     position: "fixed",
@@ -22,7 +22,10 @@ const Products = () => {
     fontSize: "18px",
     opacity: 0,
     transition: "all 0.34s"
-  })
+  });
+
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const userId = currentUser ? currentUser.login : 'guest';
 
   const onClickFav = () => {
     setFav((prevFav) => ({
@@ -32,36 +35,35 @@ const Products = () => {
   };
 
   const onClickBasket = () => {
-    if(!basket.some(item => item.id == product.id)){
-      const newProduct = {...product, quantity : 1};
+    if (!basket.some(item => item.id == product.id)) {
+      const newProduct = { ...product, quantity: 1 };
       const updateBasket = [...basket, newProduct];
       setBasket(updateBasket);
-      
-      localStorage.setItem("basket", JSON.stringify(updateBasket));
-    }else{
+      localStorage.setItem(`basket_${userId}`, JSON.stringify(updateBasket));
+    } else {
       const updateBasket = basket.map(item => {
-        return item.id === product.id ? {...item, quantity: item.quantity + 1} : item;
-      })
+        return item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item;
+      });
 
       setBasket(updateBasket);
-      localStorage.setItem("basket", JSON.stringify(updateBasket));
+      localStorage.setItem(`basket_${userId}`, JSON.stringify(updateBasket));
     }
-  }
+  };
+
   React.useEffect(() => {
-    let favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
-    
-    for(let key in fav){
-      if(fav[key]){
-        if(!favouritesLocalArray.some(item => item.id == key)){
+    let favouritesLocalArray = JSON.parse(localStorage.getItem(`favourites_${userId}`)) || [];
+
+    for (let key in fav) {
+      if (fav[key]) {
+        if (!favouritesLocalArray.some(item => item.id == key)) {
           favouritesLocalArray.push(product);
         }
-      }else{
+      } else {
         favouritesLocalArray = favouritesLocalArray.filter(item => item.id != key);
       }
     }
-    localStorage.setItem("favourites", JSON.stringify(favouritesLocalArray));
-    favouritesLocalArray = JSON.parse(localStorage.getItem("favourites"));
-  }, [fav])
+    localStorage.setItem(`favourites_${userId}`, JSON.stringify(favouritesLocalArray));
+  }, [fav, product, userId]);
 
   React.useEffect(() => {
     fetch(`https://66ea9bdb55ad32cda479a3ae.mockapi.io/items/${id}`)
@@ -70,17 +72,20 @@ const Products = () => {
       .catch((error) =>
         console.error("Error fetching product details:", error)
       );
-      const favouritesLocalArray = JSON.parse(localStorage.getItem("favourites")) || [];
-    
-      if(favouritesLocalArray.length){
-        const favouritesLocalObj = {};
-        favouritesLocalArray.map(product => {
-          favouritesLocalObj[product.id] = true;
-          
-        })
-        setFav(favouritesLocalObj);
-      }
-  }, [id]);
+
+    const favouritesLocalArray = JSON.parse(localStorage.getItem(`favourites_${userId}`)) || [];
+    const basketLocalArray = JSON.parse(localStorage.getItem(`basket_${userId}`)) || [];
+
+    if (favouritesLocalArray.length) {
+      const favouritesLocalObj = {};
+      favouritesLocalArray.forEach(product => {
+        favouritesLocalObj[product.id] = true;
+      });
+      setFav(favouritesLocalObj);
+    }
+
+    setBasket(basketLocalArray);
+  }, [id, userId]);
 
   const showMessage = () => {
     setAddBasketMessage(true);
@@ -89,24 +94,23 @@ const Products = () => {
         ...prevStyle,
         top: "20px",
         opacity: 1
-      }))
-    }, 200)
+      }));
+    }, 200);
     setTimeout(() => {
       setMessageStyle(prevStyle => ({
         ...prevStyle,
         top: "60px",
         opacity: 0
-      }))
+      }));
       setTimeout(() => {
-        setAddBasketMessage(false)
+        setAddBasketMessage(false);
         setMessageStyle(prevStyle => ({
           ...prevStyle,
           top: "-60px",
-        }))
-      }
-      , 100)
-    }, 800)
-  }
+        }));
+      }, 100);
+    }, 800);
+  };
 
   if (!product) {
     return (
@@ -149,8 +153,8 @@ const Products = () => {
             }}>Купить</button>
             {
               (fav[product.id]) ?
-              <button onClick={() => onClickFav()}>Удалить из избранного</button> :
-              <button onClick={() => onClickFav()}>Добавить в избранное</button>
+                <button onClick={() => onClickFav()}>Удалить из избранного</button> :
+                <button onClick={() => onClickFav()}>Добавить в избранное</button>
             }
           </div>
         </div>
