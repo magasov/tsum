@@ -6,6 +6,7 @@ import Favourites from "./pages/favourites/Favourites";
 import Basket from "./pages/basket/Basket";
 import Products from "./pages/products/Products";
 import Tsum from "./pages/tsum/Tsum";
+import TsumMain from "./pages/tsumMan/TsumMan";
 import MainWomen from "./pages/home/MainWomen";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Tsum />} />
-        <Route path="/man" element={<Main />} />
+        <Route path="/man" element={<TsumMain />} />
+        <Route path="/time" element={<Main />} />
         <Route path="/women" element={<MainWomen />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/favourites" element={<Favourites />} />

@@ -12,7 +12,7 @@ const DolcheGabanna = () => {
 
   return (
     <div className="content margin__content">
-      <h3 className="h3_newText">Новое в Dolce & Gabbana</h3>
+      <h3 className="h3_newText">Поло с длинным рукавом</h3>
       <Swiper spaceBetween={16} slidesPerView={1}>
         {chunkedDb.map((group, groupIndex) => (
           <SwiperSlide key={groupIndex}>

@@ -26,7 +26,7 @@ const MainWomen = () => {
             <Link to="/">Мужское</Link>/<Link to="/">Часы</Link>
           </div>
           <div className="main__h1">
-            <h1>Мужские часы</h1>
+            <h1>Одежда</h1>
           </div>
           <div className="main__main">
             <aside>

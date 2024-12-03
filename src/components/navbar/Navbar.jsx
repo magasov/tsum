@@ -14,7 +14,7 @@ const Navbar = () => {
         <Link to="/">Сумки</Link>
         <Link to="/">Аксессуары</Link>
         <Link to="/">Подарочные карты</Link>
-        <Link to="/">Часы</Link>
+        <Link to="/time">Часы</Link>
         <Link to="/">Ювелирные украшения</Link>
         <Link to="/">Косметика</Link>
         <Link to="/">Интерьер</Link>
